@@ -1,0 +1,88 @@
+@import 'reset.css';
+@import 'base';
+@red: #d34e4c;
+@calendar_margin: (80-32)/2px;
+
+a { text-decoration: none; color: @red; }
+a:hover { text-decoration: underline; }
+body { color: #999; font: 13px/22px "Noto Serif"; margin-top: 40px; }
+header{ height: 40px; width: 100%; background: #3a3633 !important; position: fixed; top: 0; z-index: 9999;
+	span.float-left { margin-left: 12px; color: #FFF; font: 14px/40px "Roboto Condensed"; }
+	span.float-right { margin: 10px 12px 6px 0;
+		a#menu { display: block; width: 28px; height: 20px; font: 16px/24px 'Entypo'; color: #FFF; text-align: right; }
+		a#menu:hover { text-decoration: none; }
+	}
+}
+img#feff15-header{ width: 100%; }
+ul, li { list-style-type: none; }
+ul li ul li { padding: 0 12px; }
+li:first-child h1 { margin-top: -8px !important; }
+h1, h2 { text-transform: uppercase; }
+h1 { background: @red; color: #FFF; font: 13px/32px "Roboto Condensed"; padding: 4px 12px; margin-top: 32px; }
+h2 { color: #3a3633; font: 24px/24px "Roboto Condensed"; padding: 6px 0; margin-top: 24px; }
+section.movie-info { font: 10px/16px "Roboto Condensed"; color: #7c7c7c; margin-bottom: 8px;
+	span { background-position: left center; background-repeat: no-repeat; padding-left: 14px; margin-right: 10px; }
+	span.datetime { background-image: url('../img/icons/datetime.png'); }
+	span.director { background-image: url('../img/icons/director.png'); }
+	span.country { background-image: url('../img/icons/country.png'); }
+	span.length { background-image: url('../img/icons/length.png'); padding-left: 10px; }
+	span.year { background-image: url('../img/icons/year.png'); }
+	span.theatre { background-image: url('../img/icons/theatre.png'); padding-left: 10px; }
+}
+img { width: 100%; }
+p { margin: 12px 0; }
+span.ellip { color: @red; cursor: pointer; display: block; }
+
+.button{
+	display: block;
+	width: 140px;
+	height: 32px;
+	border: 1px rgba(0,0,0,0.3) solid;
+	background-color: @red;
+	background-image: url('../img/opacity.png');
+	background-repeat: repeat-x;
+	color: #FFF;
+	font: 11px/32px "Roboto Condensed";
+	margin-top: 12px;
+	text-align: center;
+	text-transform: uppercase;
+	.rounded();
+}
+
+.button:hover{
+	cursor: pointer;
+	background-color: lighten(@red, 5%);
+}
+
+section#main-content { position: relative; }
+aside {
+	position: fixed;
+	right: 0;
+	top: 40px;
+	width: 80px;
+	height: 100%;
+	background: url('../img/binding_dark.png') repeat-y;
+	display: none;
+	overflow-x: none;
+	overflow-y: auto;
+	
+	ul{
+		position: absolute;
+		height: 40px + 9*32px + 10*@calendar_margin;
+	}
+	
+	ul li a{
+		display: block;
+		width: 32px;
+		height: 32px;
+		margin: @calendar_margin;
+		color: #3a3633;
+		font: 20px/36px "Roboto Condensed";
+		text-align: center;
+		letter-spacing: -1px;
+		text-decoration: none;
+		background: url('../img/calendar.png') center top no-repeat;
+	}
+	ul li a.active { background-position: center bottom; }
+	ul li a:hover { text-decoration: none; }
+}
